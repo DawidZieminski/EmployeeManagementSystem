@@ -10,5 +10,17 @@
 				return $query->row()->UserID;
 			}
 		}
+
+		public function  getUserType(){
+				$query = $this->db->where(['NameType'=>'Employee'])->get('user_type');
+			if($query->num_rows() >0){
+				print_r( $query->row()->UserTypeID);
+				#return $query->row()->UserTypeID;
+			}
+		}
+		public function addEmployee($data){
+			return $this->db->insert('users',$data);
+
+		}
 	}
 ?>
