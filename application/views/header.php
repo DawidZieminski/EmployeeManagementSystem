@@ -36,9 +36,9 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Konto</a>
     <div class="dropdown-menu" role="menu">
  
-     <a class="dropdown-item" href="#"> <?php echo anchor("dashboard/changePassword", 'Zmień hasło'); ?></a>
+     <a class="dropdown-item" href="#"> <?php echo anchor("dashboard/changePassword", '  Zmień hasło'); ?></a>
      
-      <a class="dropdown-item" href="#"> <?php echo anchor("login/logout", 'Wyloguj'); ?></a>
+      <a class="dropdown-item" href="#"> <?php echo anchor("login/logout", '  Wyloguj'); ?></a>
   
     </div>
   </li>

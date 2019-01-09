@@ -58,27 +58,26 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="form-group">
-      		<label  control-label">Password</label>
-     	  <div class="col-1g-10">
-      		<?php echo form_input(['name'=>'Password', 'class'=>'form-control','placeholder'=>'Hasło','type'=>'Password','value'=>set_value('Password')]);?>
-       		 <?php echo form_error('Password','<div class="text-danger">','</div>'); ?>
-     	  </div>
+          <label  control-label">Password</label>
+        <div class="col-1g-10">
+          <?php echo form_input(['name'=>'Password', 'class'=>'form-control','placeholder'=>'Hasło','type'=>'Password','value'=>set_value('Password')]);?>
+           <?php echo form_error('Password','<div class="text-danger">','</div>'); ?>
+        </div>
          </div>
         </div>
        </div>
-
            <div class="row">
         <div class="col-lg-6">
           <div class="form-group">
-      		<label for="InputUserTypeID"  control-label">Stanowisko</label>
-     	  <div class="col-1g-10">
-     	  	<select class="form-control" name="UserTypeID">
+          <label for="InputUserTypeID"  control-label">Stanowisko</label>
+        <div class="col-1g-10">
+          <select class="form-control" name="UserTypeID">
               <option> </option>
-     	  		<option value=<?php echo $result; ?> >Employee</option>
-     	  	</select>
-      		
-       		 <?php echo form_error('UserTypeID','<div class="text-danger">','</div>'); ?>
-     	  </div>
+            <option value=<?php echo $result; ?> >Employee</option>
+          </select>
+          
+           <?php echo form_error('UserTypeID','<div class="text-danger">','</div>'); ?>
+        </div>
          </div>
         </div>
        </div>
@@ -93,4 +92,3 @@
 </div>
 
 <?php include('footer.php'); ?>
-

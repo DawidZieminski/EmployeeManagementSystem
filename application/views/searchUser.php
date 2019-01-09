@@ -66,10 +66,10 @@
   </thead>
   <tbody>
 
-    <?php if(count($result)):?>
-      <?php foreach($result as $res): ?>
+    <?php if(count($record)):?>
+      <?php foreach($record as $record): ?>
         <tr class="table-active">
-          <?php if($res->UserTypeID == 1): ?>
+          <?php if($record->UserTypeID == 1): ?>
           <td></td>
           <?php else: ?>
            <td><?php echo form_checkbox(['class'=>'checkbox']); ?></td>
@@ -78,10 +78,10 @@
        
          
 
-           <td scope="row"><?php echo anchor("employee/empPersonalDetails/{$res->UserID}", $res->FirstName);  ?></td>
-           <td scope="row"><?php echo $res->LastName; ?></td>
-           <td><?php echo $res->Email; ?></td>
-           <td><?php echo $res->NameType; ?></td>
+           <td scope="row"><?php echo anchor("employee/empPersonalDetails/{$record->UserID}", $record->FirstName);  ?></td>
+           <td scope="row"><?php echo $record->LastName; ?></td>
+           <td><?php echo $record->Email; ?></td>
+           <td><?php echo $record->NameType; ?></td>
        </tr>
      <?php endforeach; ?>
 
@@ -98,7 +98,7 @@
  </table> 
 
   
-<font size="4"><?php echo $this->pagination->create_links() ?></font>
+
  
  </div>
 </div>

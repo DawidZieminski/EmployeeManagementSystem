@@ -14,7 +14,7 @@
 		public function  getUserType(){
 				$query = $this->db->where(['NameType'=>'Employee'])->get('user_type');
 			if($query->num_rows() >0){
-				print_r( $query->row()->UserTypeID);
+				#print_r( $query->row()->UserTypeID);
 				return $query->row()->UserTypeID;
 			}
 		}
@@ -39,7 +39,20 @@
 			return $query->num_rows();
 		}
 
+		public function searchRecord($query) {
+			$this->db->select(['users.UserID', 'users.Email', 'users.FirstName', 'users.LastName', 'user_type.NameType','users.UserTypeID']);
+			$this->db->from('users');
+			$this->db->join('user_type', 'user_type.UserTypeID = users.UserTypeID');
+			$this->db->like('FirstName',$query);
+			$query = $this->db->get();
+			return $query->result();
+		}
+
+	}
 
 
-	}  
+
+
+
+	 
 ?>

@@ -37,6 +37,11 @@ class Employee extends CI_Controller{
                 	  $this->createEmployee();
                 }
 	}
+
+	public function empPersonalDetails(){
+		echo 'tutut';
+	}
+
 }
 
 
