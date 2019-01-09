@@ -6,7 +6,7 @@
   <fieldset>
 <br></br>
    <legend>Dodaj pracownika</legend>
- 
+    
     <div class="row" >
    
       <div class="col-lg-6">
@@ -74,7 +74,7 @@
      	  <div class="col-1g-10">
      	  	<select class="form-control" name="UserTypeID">
               <option> </option>
-     	  		<option value=<?php echo $result; ?>>Employee</option>
+     	  		<option value=<?php echo $result; ?> >Employee</option>
      	  	</select>
       		
        		 <?php echo form_error('UserTypeID','<div class="text-danger">','</div>'); ?>

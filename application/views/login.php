@@ -8,7 +8,7 @@
    <legend>Logowanie</legend>
        <?php if($error = $this->session->flashdata('login_response')): ?>
    <div class='row'>
-     <div class='col-lg-6'>
+     <div class='col-lg-2'>
       <div class="alert alert-dismissible alert-danger">
     <?php echo $error; ?>
       </div>
@@ -20,7 +20,7 @@
    
       <div class="col-lg-6">
        <div class="form-group">
-        <label for="InputEmail"  class="col-lg-3 control-label">Adres email</label>
+        <label for="InputEmail">Adres email</label>
         <div class="col-1g-10">
          <?php echo form_input(['name'=>'Email', 'class'=>'form-control','placeholder'=>'Email','value'=>set_value('Email')]);?>
            <?php echo form_error('Email','<div class="text-danger">','</div>'); ?>
@@ -44,7 +44,7 @@
      </div>
      </div>
   </div>
-     <div class="col-lg-10 col-lg-offset-2">
+     <div >
         <?php echo form_submit(['value'=>'Zaloguj', 'class'=>'btn btn-primary']);?>
   
   </div>
