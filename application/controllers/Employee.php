@@ -41,7 +41,9 @@ class Employee extends CI_Controller{
 	public function empPersonalDetails($employee_id){
 		$this->load->model('Queries');
 		$result = $this->Queries->getEmployeeRecords($employee_id);
-		$this->load->view('empPersonalDetails',['result'=>$result]);
+		$records = $this->Queries->getEmpPersonalDetails($employee_id);
+		$this->load->view('empPersonalDetails',['result'=>$result, 'records'=>$records]);
+
 	}
 
 	public function addPersonalDetails($employee_id){
@@ -73,6 +75,12 @@ class Employee extends CI_Controller{
                 	 $this->empPersonalDetails($employee_id);
                 }
 	}
+
+	public function empContactDetails($employee_id){
+		$this->load->view('empContactDetails');
+	}
+
+
 
 }
 ?>

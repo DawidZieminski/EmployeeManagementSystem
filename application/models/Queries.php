@@ -60,6 +60,16 @@
 			return $this->db->insert('employeedetails',$data);
 		}
 
+			public function getEmpPersonalDetails($employee_id){
+				$query = $this->db->where(['UserID'=>$employee_id])->get('employeedetails');
+				if($query->num_rows()>0){
+					return $query->row();
+				}
+
+
+	}
+
+
 	}
 
 
