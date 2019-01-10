@@ -3,51 +3,20 @@
 <div style="margin-top:25px; ">
  <div class="container">
 
-  <div class="col-lg-3">
-   <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-   <button type="button" class="btn btn-primary">Zarządzaj pracownikami</button>
-    <div class="btn-group" role="group">
-    
-     <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 48px, 0px);">
-
-       <li class="dropdown-item" href="#"><?php echo anchor("employee/createEmployee",'Dodaj pracownika');?> </li>
-       <li class="dropdown-item" href="#"><?php echo anchor("dashboard",'Lista pracowników');?> </li>
-       <li class="dropdown-item" href="#"><?php echo anchor("employee/deleteEmployee",'Usuń');?> </li>
-    
-     </div>
-    </div>
-   </div>
-  </div>
-
-
-
-    <div class=" row-lg-8" style="margin-top:25px">
-      <?php echo form_open("dashboard/search", ['class'=>'navbar-form navbr-right', 'role'=>'search']); ?>
-      <?php echo form_input(['name'=>'query', 'class'=>'form-control','placeholder'=>'Search']);?>
-      <?php echo form_submit(['value'=>'Search', 'class'=>'btn btn-primary']);?>
-      <?php echo form_close(); ?>
-     <?php echo form_error('query','<div class="text-danger">','</div>'); ?>
-
-    </div>
-
-
-
 
  </div>
- <div class="container" style="margin-top:25px">
-  <?php echo anchor("employee/deleteEmployee",'Usuń', ['class'=>'btn btn-danger']); ?>
- </div>
+
  <div>
- <br>    <?php if($error = $this->session->flashdata('employee_add')): ?>
+ <br>    <?php if($response = $this->session->flashdata('employee_add')): ?>
+    <div   class="container">
    <div class='row'>
-     <div class='col-lg-6'>
+     <div class='col-sm-12'>
       <div class="alert alert-dismissible alert-success">
-    <?php echo $error; ?>
+    <?php echo $response; ?>
       </div>
      </div>
    </div>
-   
+      </div>
    <?php endif; ?></br>
 
 
@@ -97,9 +66,11 @@
   </tbody>
  </table> 
 
-  
-<font size="4"><?php echo $this->pagination->create_links() ?></font>
  
+<font size="4"><?php echo $this->pagination->create_links() ?></font>
+  <div>
+  <?php echo anchor("employee/deleteEmployee",'Usuń', ['class'=>'btn btn-danger']); ?>
+ </div>
  </div>
 </div>
 <?php include('footer.php');?>

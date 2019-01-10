@@ -48,6 +48,18 @@
 			return $query->result();
 		}
 
+		public function getEmployeeRecords($employee_id){
+			$query = $this->db->where(['UserID'=>$employee_id])->get('users');
+			if($query->num_rows()>0){
+				return $query->row();
+			}
+		}
+
+		public function insertEmpPersonalDetails($data){
+			
+			return $this->db->insert('employeedetails',$data);
+		}
+
 	}
 
 

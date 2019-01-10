@@ -31,6 +31,7 @@
         <div class="col-1g-10">
          <?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Nazwisko','value'=>set_value('LastName')]);?>
            <?php echo form_error('LastName','<div class="text-danger">','</div>'); ?>
+          
         </div>
        </div>
       </div>
