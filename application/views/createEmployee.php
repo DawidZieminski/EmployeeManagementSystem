@@ -1,5 +1,7 @@
 <?php include('header.php'); ?>
 
+ <?php if($this->session->userdata('UserID')): ?>
+
 <div class="container">
   <?php echo form_open("employee/insertEmployee",['calss'=>'form-horizontal'])?>
 <br></br>
@@ -91,5 +93,9 @@
   </fieldset>
 <?php echo form_close();?>
 </div>
+
+<?php else: ?>
+  <?php Redirect('', false); ?>
+<?php endif; ?>
 
 <?php include('footer.php'); ?>

@@ -77,7 +77,38 @@ class Employee extends CI_Controller{
 	}
 
 	public function empContactDetails($employee_id){
-		$this->load->view('empContactDetails');
+		$this->load->model('Queries');
+		$result = $this->Queries->getEmployeeRecords($employee_id);
+		$records = $this->Queries->getEmpContactDetails($employee_id);
+		$this->load->view('empContactDetails',['result'=>$result, 'records'=>$records]);
+	}
+
+	public function addContactlDetails($employee_id){
+				$this->form_validation->set_rules('Adress1', 'Adress1', 'required');
+                $this->form_validation->set_rules('City', 'City', 'required');
+                $this->form_validation->set_rules('State', 'State', 'required');
+                $this->form_validation->set_rules('ZipCode', 'ZipCode', 'required');
+                $this->form_validation->set_rules('Country', 'Country', 'required');
+                $this->form_validation->set_rules('Mobile', 'Mobile', 'required');  
+                $this->form_validation->set_rules('Email', 'Email', 'required');              
+                $this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+          
+                if ($this->form_validation->run())
+                {
+                	$data = $this->input->post();
+                	$this->load->model('Queries');
+                	if($this->Queries->insertEmpContactDetails($data)){
+                			$this->session->set_flashdata('employee_add','Poprawnie zaktualizowano dane kontaktowe');
+
+                	}
+                	else{
+						$this->session->set_flashdata('employee_add','Wystąpił błąd');
+                	}
+                	return redirect('dashboard');
+                }
+                else{
+                	  $this->empContactDetails($employee_id);
+                }
 	}
 
 

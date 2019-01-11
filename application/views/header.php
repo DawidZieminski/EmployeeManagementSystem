@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
    <a class="navbar-brand" href="<?php echo base_url("") ?>">System Zarządzania Pracownikami</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -45,9 +45,12 @@
       <?php echo form_close(); ?>
      <?php echo form_error('query','<div class="text-danger">','</div>'); ?></div>
 </div>
+
+
       <?php else: ?>
 
 
   <?php endif; ?>
   </div>
 </nav>
+

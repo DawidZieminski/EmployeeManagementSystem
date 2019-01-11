@@ -1,4 +1,9 @@
 <?php include('header.php'); ?>
+
+ <?php if($this->session->userdata('UserID')): ?>
+
+
+
 	<div class="container">
 <?php echo form_open_multipart("employee/addPersonalDetails/{$result->UserID}", ['class'=>'form-horizontal']);?>
 <?php echo form_hidden('UserID', $result->UserID); ?>
@@ -47,9 +52,9 @@
      			 <label for="LastName" class="col-sm-2 col-form-label">Nazwisko</label>
 	     		    <div class="col-sm-6">
 						<?php if(!empty($records)): ?>
-						<?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Nazwisko','value'=>set_value('FirstName', $records->LastName)]);?>
+						<?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Nazwisko','value'=>set_value('LastName', $records->LastName)]);?>
 						<?php else: ?>
-						<?php echo form_input(['name'=>'FirstName', 'class'=>'form-control','placeholder'=>'Imię','value'=>set_value('LastName')]);?>
+						<?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Imię','value'=>set_value('LastName')]);?>
 						<?php endif; ?>
 						<?php echo form_error('LastName','<div class="text-danger">','</div>'); ?>
 	    			</div>
@@ -111,4 +116,9 @@
 				
 <?php echo form_close(); ?>
 	</div>
+
+	      <?php else: ?>
+<?php Redirect('', false); ?>
+
+  <?php endif; ?>
 <?php include('footer.php'); ?>
