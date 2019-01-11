@@ -69,14 +69,21 @@
          </div>
         </div>
        </div>
-           <div class="row">
+
+        <div class="row">
         <div class="col-lg-6">
           <div class="form-group">
           <label for="InputUserTypeID"  control-label">Stanowisko</label>
         <div class="col-1g-10">
           <select class="form-control" name="UserTypeID">
-              <option> </option>
-            <option value=<?php echo $result; ?> >Employee</option>
+       
+            <option value=<?php echo $result="2"; ?> >Dyrektor</option>
+            <option value=<?php echo $result="3"; ?> >Kierownik</option>
+            <option value=<?php echo $result="4"; ?> >Automatyk</option>
+            <option value=<?php echo $result="5"; ?> >Elektryk</option>
+            <option value=<?php echo $result="6"; ?> >Programista PLC</option>
+            <option value=<?php echo $result="7"; ?> >Monetr</option>
+    
           </select>
           
            <?php echo form_error('UserTypeID','<div class="text-danger">','</div>'); ?>
@@ -85,10 +92,13 @@
         </div>
        </div>
 
-     <div class="col-lg-10 col-lg-offset-2">
-        <?php echo form_submit(['value'=>'Utwórz', 'class'=>'btn btn-primary']);?>
-  
-  </div>
+        <div class="form-group row">
+        
+              <div class="col-sm-1">
+              <?php echo form_submit(['value'=>'Utwórz', 'class'=>'btn  btn-primary']);?>
+            </div>
+                </div>
+ 
  
   </fieldset>
 <?php echo form_close();?>

@@ -4,12 +4,15 @@
 			if(!$this->session->userdata('UserID')){
 				return redirect('login');
 			}
+			elseif($this->session->userdata('UserID') !=1){
+				$this->load->view('empdashboard');
+			}
 			else{
 				$this->load->model('Queries');
 				$this->load->library('pagination');
 				$config = [
 					'base_url' => base_url("dashboard/index"),
-					'per_page' => 5,
+					'per_page' => 10,
 					'total_rows' => $this->Queries->get_num_rows(),
 				];
 				$this->pagination->initialize($config);

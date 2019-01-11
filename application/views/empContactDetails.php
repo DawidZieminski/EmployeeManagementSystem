@@ -134,19 +134,12 @@
 	    			</div>
                 </div>          
 
-
-
-
-
-                 
-           
-				
-
-
-                <div class="row">
-			<div class="col-lg-1">
-		        	<?php echo form_submit(['value'=>'Zapisz', 'class'=>'btn btn-primary']);?>
-		 	 	</div></div>
+				<div class="form-group row">
+     			 <label for="number" class="col-sm-2 col-form-label"></label>
+	     		    <div class="col-sm-6">
+							<?php echo form_submit(['value'=>'Zapisz', 'class'=>'btn  btn-primary']);?>
+	    			</div>
+                </div>        
 				
 <?php echo form_close(); ?>
 	</div>

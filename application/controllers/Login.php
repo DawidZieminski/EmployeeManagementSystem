@@ -27,16 +27,24 @@
                      $Password=$this->input->post('Password');
                      $this->load->model('Queries');
                      $UserID = $this->Queries->login_user($Email,$Password);
+                     $UserTypeID = $this->Queries->getUserType();
+                     
+
                      if($UserID)
                      {
-                     	$this->session->set_userdata(['UserID'=>$UserID]);
-                     	return redirect('dashboard');
-                     }
-                     else
-                     {
-                     	$this->session->set_flashdata('login_response','Invalid Email/Password');
-                     	return redirect('login');
-                     }
+                        if($UserID == 1){
+                        $this->session->set_userdata(['UserID'=>$UserID]);
+                        return redirect('dashboard');                           
+                        }
+
+                        else{
+                        $this->session->set_userdata(['UserID'=>$UserID]);
+                        return redirect('dashboard');                           
+                        }
+                    }
+                     $this->session->set_flashdata('login_response','Invalid Email/Password');
+                     return redirect('login');
+
                 }
                 else
                 {

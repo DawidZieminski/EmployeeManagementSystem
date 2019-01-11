@@ -18,11 +18,11 @@
    </div>
       </div>
    <?php endif; ?></br>
-
-
-
  </div>
+
+
  <div   class="container">
+  <?php echo form_open('employee/deleteEmployee'); ?>
   <table class="table table-hover">
   <thead>
     <tr>
@@ -30,7 +30,7 @@
       <th scope="col">Imię</th>
       <th scope="col">Nazwisko</th>
       <th scope="col">Email</th>
-      <th scope="col">Stanowisko</th>
+      <th scope="col">Typ użytkownika</th>
     </tr>
   </thead>
   <tbody>
@@ -41,7 +41,7 @@
           <?php if($res->UserTypeID == 1): ?>
           <td></td>
           <?php else: ?>
-           <td><?php echo form_checkbox(['class'=>'checkbox']); ?></td>
+           <td><?php echo form_checkbox(['value'=>$res->UserID, 'name'=>'UserID[]','class'=>'checkbox']); ?></td>
           <?php endif; ?>
 
        
@@ -69,8 +69,9 @@
  
 <font size="4"><?php echo $this->pagination->create_links() ?></font>
   <div>
-  <?php echo anchor("employee/deleteEmployee",'Usuń', ['class'=>'btn btn-danger']); ?>
+  <input type="submit" value="Usuń" class="btn btn-danger" onclick="return confirm('Czy jesteś pewny?')">
  </div>
  </div>
+ <?php echo form_close(); ?>
 </div>
-<?php include('footer.php');?>
+<?php include('footer.php');?> 

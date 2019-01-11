@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
 	 <link rel="stylesheet" href="https://bootswatch.com/4/slate/bootstrap.css" >
@@ -13,7 +14,7 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-   <a class="navbar-brand" href="<?php echo base_url("") ?>">System Zarządzania Pracownikami</a>
+   <a class="navbar-brand" href="<?php echo base_url("") ?>">SYSTEM ZARZĄDZANIA PRACOWNIKAMI</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -53,4 +54,6 @@
   <?php endif; ?>
   </div>
 </nav>
+
+
 

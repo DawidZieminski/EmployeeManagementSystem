@@ -14,7 +14,6 @@
 		public function  getUserType(){
 				$query = $this->db->where(['NameType'=>'Employee'])->get('user_type');
 			if($query->num_rows() >0){
-				#print_r( $query->row()->UserTypeID);
 				return $query->row()->UserTypeID;
 			}
 		}
@@ -56,8 +55,13 @@
 		}
 
 		public function insertEmpPersonalDetails($data){
+	$query = $this->db->where(['UserID'=>$employee_id])->get('employeedetails');
+			if($query->num_rows()>0){
+				return $this->db->insert('employeedetails',$data);
+			}else{
+				return $this->db->update('employeedetails',$data);
+			}
 			
-			return $this->db->insert('employeedetails',$data);
 		}
 
 		public function getEmpPersonalDetails($employee_id){
@@ -68,7 +72,13 @@
 		}
 		
 		public function insertEmpContactDetails($data){
-			return $this->db->insert('employeecontact',$data);
+
+			$query = $this->db->where(['UserID'=>$employee_id])->get('employeecontact');
+			if($query->num_rows()>0){
+				return $this->db->insert('employeecontact',$data);
+			}else{
+			return $this->db->update('employeecontact',$data);
+		}
 		}
 
 		public function getEmpContactDetails($employee_id){
@@ -76,6 +86,14 @@
 			if($query->num_rows()>0){
 				return $query->row();
 			}
+		}
+
+		public function deleteEmp($userid){
+			 $this->db->delete('users', ['UserID'=>$userid]);
+			 $this->db->delete('employeedetails', ['UserID'=>$userid]);
+			 $this->db->delete('employeecontact', ['UserID'=>$userid]);
+			
+
 		}
 	}
 
