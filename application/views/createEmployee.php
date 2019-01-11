@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
- <?php if($this->session->userdata('UserID')): ?>
+ <?php if($this->session->userdata('UserID')==1): ?>
 
 <div class="container">
   <?php echo form_open("employee/insertEmployee",['calss'=>'form-horizontal'])?>
@@ -105,7 +105,7 @@
 </div>
 
 <?php else: ?>
-  <?php Redirect('', false); ?>
+  <?php Redirect('login/user_login', false); ?>
 <?php endif; ?>
 
 <?php include('footer.php'); ?>

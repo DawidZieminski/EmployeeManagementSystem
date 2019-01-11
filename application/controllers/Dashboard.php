@@ -5,7 +5,8 @@
 				return redirect('login');
 			}
 			elseif($this->session->userdata('UserID') !=1){
-				$this->load->view('empdashboard');
+				$UserID = $this->session->userdata('UserID');
+				$this->load->view('employee/empPersonalDetails/{$UserID}');
 			}
 			else{
 				$this->load->model('Queries');

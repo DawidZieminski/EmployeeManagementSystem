@@ -39,7 +39,7 @@
 
                         else{
                         $this->session->set_userdata(['UserID'=>$UserID]);
-                        return redirect('dashboard');                           
+                       return redirect("employee/empPersonalDetails/{$UserID}");                       
                         }
                     }
                      $this->session->set_flashdata('login_response','Invalid Email/Password');

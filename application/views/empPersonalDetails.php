@@ -107,14 +107,14 @@
 	                 <?php echo form_error('Bonus','<div class="text-danger">','</div>'); ?>
 	    			</div>
                 </div>
-
+<?php if($this->session->userdata('UserID') ==1): ?>
 				<div class="form-group row">
      			 <label for="number" class="col-sm-2 col-form-label"></label>
 	     		    <div class="col-sm-6">
 							<?php echo form_submit(['value'=>'Zapisz', 'class'=>'btn  btn-primary']);?>
 	    			</div>
                 </div>
-
+ <?php endif; ?>    
       
 				
 <?php echo form_close(); ?>

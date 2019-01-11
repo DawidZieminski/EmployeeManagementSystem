@@ -44,6 +44,8 @@ class Employee extends CI_Controller{
 
 	}
 
+
+
 	public function addPersonalDetails($employee_id){
 		    	
 
@@ -108,6 +110,8 @@ class Employee extends CI_Controller{
                 	  $this->empContactDetails($employee_id);
                 }
 	}
+
+
 
 	public function deleteEmployee(){
 		$this->load->model('Queries');

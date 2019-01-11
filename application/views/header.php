@@ -14,14 +14,18 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+  <?php if($this->session->userdata('UserID') ==1): ?>
    <a class="navbar-brand" href="<?php echo base_url("") ?>">SYSTEM ZARZĄDZANIA PRACOWNIKAMI</a>
+   <?php else: ?>
+    <a class="navbar-brand"  href="#">SYSTEM ZARZĄDZANIA PRACOWNIKAMI</a>
+    <?php endif; ?>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
-        <?php if($this->session->userdata('UserID')): ?>
+        <?php if($this->session->userdata('UserID')== 1) : ?>
       <li class="nav-item">
      <a class="nav-link" href="<?php echo base_url(" ") ?>">Lista pracowników<span class="sr-only">(current)</span></a>
       </li>
@@ -48,8 +52,10 @@
 </div>
 
 
-      <?php else: ?>
-
+      <?php elseif($this->session->userdata('UserID')) : ?>
+<li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url("login/logout")?>"> Wyloguj</a>
+      </li>
 
   <?php endif; ?>
   </div>
