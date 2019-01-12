@@ -25,7 +25,7 @@
 					  </li>
 
 					  <li class="nav-item">
-					    <a class="nav-link" href="<?php echo base_url("employee/empJobDetails/{$result->UserID}") ?>">Praca</a>
+					    <a class="nav-link" href="<?php echo base_url("employee/empWorkDetails/{$result->UserID}") ?>">Praca</a>
 					  </li>
 					 
 					</ul>

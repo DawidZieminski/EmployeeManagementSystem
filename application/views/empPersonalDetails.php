@@ -25,7 +25,7 @@
 					  </li>
 
 					  <li class="nav-item">
-					    <a class="nav-link" href="<?php echo base_url("employee/empJobDetails/{$result->UserID}") ?>">Praca</a>
+					    <a class="nav-link" href="<?php echo base_url("employee/empWorkDetails/{$result->UserID}") ?>">Praca</a>
 					  </li>
 					 
 					</ul>
@@ -54,7 +54,7 @@
 						<?php if(!empty($records)): ?>
 						<?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Nazwisko','value'=>set_value('LastName', $records->LastName)]);?>
 						<?php else: ?>
-						<?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Imię','value'=>set_value('LastName')]);?>
+						<?php echo form_input(['name'=>'LastName', 'class'=>'form-control','placeholder'=>'Nazwisko','value'=>set_value('LastName')]);?>
 						<?php endif; ?>
 						<?php echo form_error('LastName','<div class="text-danger">','</div>'); ?>
 	    			</div>

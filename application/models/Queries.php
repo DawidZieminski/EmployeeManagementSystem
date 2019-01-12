@@ -95,6 +95,22 @@
 			
 
 		}
+
+		
+
+		public function addWork($data){
+	
+			return $this->db->insert('work',$data);
+		
+		}
+
+		public function getWorkRecords($employee_id){
+			$query = $this->db->where(['UserID'=>$employee_id])->get('work');
+			if($query->num_rows()>0){
+				return $query->row();
+			}
+		}
+
 	}
 
 
