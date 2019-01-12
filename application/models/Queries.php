@@ -30,6 +30,7 @@
 			$this->db->join('user_type', 'user_type.UserTypeID = users.UserTypeID');
 			$this->db->limit($limit, $offset);
 			$query = $this->db->get();
+
 			return $query->result();
 		}
 
@@ -70,7 +71,7 @@
 				return $query->row();
 			}
 		}
-		
+
 		public function insertEmpContactDetails($data){
 
 			$query = $this->db->where(['UserID'=>$employee_id])->get('employeecontact');
@@ -92,16 +93,11 @@
 			 $this->db->delete('users', ['UserID'=>$userid]);
 			 $this->db->delete('employeedetails', ['UserID'=>$userid]);
 			 $this->db->delete('employeecontact', ['UserID'=>$userid]);
-			
-
 		}
-
-		
 
 		public function addWork($data){
 	
 			return $this->db->insert('work',$data);
-		
 		}
 
 		public function getWorkRecords($employee_id){
@@ -111,11 +107,14 @@
 			}
 		}
 
+		public function getChartData($employee_id){
+			$this->db->select(['work.UserID', 'work.Project', 'work.DateWork', 'work.Hours']);
+			$this->db->from('work');
+			$this->db->join('users', 'work.UserID = users.UserID');
+			$this->db->where(['work.UserID'=>$employee_id]);
+			$query = $this->db->get();
+			return $query->result();
+
+		}
 	}
-
-
-
-
-
-	 
 ?>

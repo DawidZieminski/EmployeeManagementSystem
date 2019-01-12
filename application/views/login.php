@@ -35,7 +35,7 @@
         <div class="row">
          <div class="col-lg-6">
           <div class="form-group">
-      <label for="InputPassword"  control-label">Password</label>
+      <label for="InputPassword"  control-label">Hasło</label>
       <div class="col-1g-10">
       <?php echo form_input(['name'=>'Password', 'class'=>'form-control','placeholder'=>'Hasło','type'=>'Password']);?>
         <?php echo form_error('Password','<div class="text-danger">','</div>'); ?>

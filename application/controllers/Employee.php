@@ -125,8 +125,10 @@ class Employee extends CI_Controller{
         $this->load->model('Queries');
         $result = $this->Queries->getEmployeeRecords($employee_id);
         $records = $this->Queries->getWorkRecords($employee_id);
+        $chartdata = $this->Queries->getChartData($employee_id);
+
         
-        $this->load->view('empWorkDetails',['result'=>$result, 'records'=>$records]);
+        $this->load->view('empWorkDetails',['result'=>$result, 'records'=>$records, 'chartdata' =>$chartdata]);
     }
 
 public function addWorkDetails($employee_id){

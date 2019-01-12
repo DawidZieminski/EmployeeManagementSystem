@@ -47,7 +47,7 @@
        
          
 
-           <td scope="row"><?php echo anchor("employee/empPersonalDetails/{$res->UserID}", $res->FirstName);  ?></td>
+           <td scope="row"><?php echo anchor("employee/empWorkDetails/{$res->UserID}", $res->FirstName);  ?></td>
            <td scope="row"><?php echo $res->LastName; ?></td>
            <td><?php echo $res->Email; ?></td>
            <td><?php echo $res->NameType; ?></td>

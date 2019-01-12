@@ -18,7 +18,7 @@
 					<a href="">
 					<ul class="nav nav-pills flex-column">
 					  <li class="nav-item">
-					    <a class="nav-link active" href="<?php echo base_url("employee/empPersonalDetails/{$result->UserID}") ?>">Dane personalne</a> </li>
+					    <a class="nav-link active" href="<?php echo base_url("employee/empPersonalDetails/{$result->UserID}") ?>">Dane ogólne</a> </li>
 					
 					  <li class="nav-item">
 					    <a class="nav-link" href="<?php echo base_url("employee/empContactDetails/{$result->UserID}") ?>">Dane kontaktowe</a>

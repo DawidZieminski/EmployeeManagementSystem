@@ -23,7 +23,7 @@
 					<a href="">
 					<ul class="nav nav-pills flex-column">
 					  <li class="nav-item">
-					    <a class="nav-link" href="<?php echo base_url("employee/empPersonalDetails/{$result->UserID}") //{$result->UserID}?>">Dane personalne</a> </li>
+					    <a class="nav-link" href="<?php echo base_url("employee/empPersonalDetails/{$result->UserID}")?>">Dane ogólne</a> </li>
 					
 					  <li class="nav-item">
 					    <a class="nav-link " href="<?php echo base_url("employee/empContactDetails/{$result->UserID}") ?>">Dane kontaktowe</a>
@@ -44,7 +44,7 @@
 
 
 				<div class="form-group row">
-     			 <label for="text" class="col-sm-2 col-form-label">Project</label>
+     			 <label for="text" class="col-sm-2 col-form-label">Projekt</label>
 	     		    <div class="col-sm-6">
 	     		     <?php if(!empty($records)): ?>
 	                 <?php echo form_input(['name'=>'Project', 'class'=>'form-control','placeholder'=>'Project','value'=>set_value('Project', $records->Project)]);?>
@@ -89,9 +89,75 @@
 	    			</div>
                 </div>   
                 <?php endif; ?>     
+</div>
+
+
+<div class="container">
+ <table class="table table-hover">
+  <thead>
+    <tr>
+    
+      <th scope="col">Nazwa zlecenia</th>
+      <th scope="col">Data</th>
+      <th scope="col">Liczba godzin</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <?php if(count($chartdata)):?>
+      <?php foreach($chartdata as $res): ?>
+        <tr class="table-active">
+      
+           <td scope="row"><?php echo $res->Project;  ?></td>
+           <td scope="row"><?php echo $res->DateWork; ?></td>
+           <td><?php echo $res->Hours; ?></td>
+         
+       </tr>
+
+        <?php endforeach; ?>
+
+      <?php else: ?>
+        <tr>
+          <td>Brak rekordów!</td>
+        </tr>
+      <?php endif; ?>
+
+        </tbody>
+ </table> 
+</div>
+
+
+
+<canvas id="myChart"></canvas>
+<script>
+	Chart.defaults.global.defaultFontColor = 'white';
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: [1,2,3,"12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019","12.12.2019",29,30,31],
+        datasets: [{
+            label: "Wrzesień",
+            color:'rgb(1, 1, 1)',
+            backgroundColor: 'rgb(1, 1, 1)',
+            borderColor: 'rgb((111, 31, 93)',
+            data: [1	,	2	,	3	,	4	,	5	,	6	,	7	,	8	,	9	,	10	,	11	,	12	,	13	,	14	,	15	,	16	,	17	,	18	,	19	,	20	,	21	,	22	,	23	,	24	,	25	,	26	,	27	,	28	,	29	,	30	,	31
+],
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+</script>
 				
 <?php echo form_close(); ?>
-	</div>
+	
 
 <?php else: ?>
 	<?php Redirect('', false); ?>
