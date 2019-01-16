@@ -125,37 +125,56 @@ class Employee extends CI_Controller{
         $this->load->model('Queries');
         $result = $this->Queries->getEmployeeRecords($employee_id);
         $records = $this->Queries->getWorkRecords($employee_id);
-        $chartdata = $this->Queries->getChartData($employee_id);
+        $tabledata = $this->Queries->getChartData($employee_id);
+        $chartdata = $this->Queries->getChartData2($employee_id);
 
         
-        $this->load->view('empWorkDetails',['result'=>$result, 'records'=>$records, 'chartdata' =>$chartdata]);
+        $this->load->view('empWorkDetails',['result'=>$result, 'records'=>$records, 'chartdata' =>$chartdata,  'tabledata' =>$tabledata]);
     }
 
-public function addWorkDetails($employee_id){
-                $this->form_validation->set_rules('Project', 'Project', 'required');
-                $this->form_validation->set_rules('DateWork', 'DateWork', 'required');
-                $this->form_validation->set_rules('Hours', 'Hours', 'required');
-            
-                 
-                $this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
-          
-                if ($this->form_validation->run())
-                {
-                    $data = $this->input->post();
-                    $this->load->model('Queries');
-                    if($this->Queries->addWork($data)){
-                            $this->session->set_flashdata('employee_add','Poprawnie zaktualizowano dane kontaktowe');
+    public function addWorkDetails($employee_id){
+                    $this->form_validation->set_rules('Project', 'Project', 'required');
+                    $this->form_validation->set_rules('DateWork', 'DateWork', 'required');
+                    $this->form_validation->set_rules('Hours', 'Hours', 'required');
+                
+                     
+                    $this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+              
+                    if ($this->form_validation->run())
+                    {
+                        $data = $this->input->post();
+                        $this->load->model('Queries');
+                        if($this->Queries->addWork($data)){
+                                $this->session->set_flashdata('employee_add','Poprawnie dodano obecnośc');
 
+                        }
+                        else{
+                            $this->session->set_flashdata('employee_add','Wystąpił błąd');
+                        }
+                         return redirect('dashboard');
                     }
                     else{
-                        $this->session->set_flashdata('employee_add','Wystąpił błąd');
+                          $this->empWorkDetails($employee_id);
                     }
-                    return redirect('dashboard');
-                }
-                else{
-                      $this->empWorkDetails($employee_id);
-                }
     }
+
+    public function getDataChart($employee_id){
+         $this->load->model('Queries');
+        $result = $this->Queries->getChartData2($employee_id);
+        $data = array();
+        foreach ($result as $key) {
+           $data[] = $key;
+        }
+        echo json_encode($data);
+    }
+
+
+
+
+
+
+
+
 
 
 

@@ -112,9 +112,29 @@
 			$this->db->from('work');
 			$this->db->join('users', 'work.UserID = users.UserID');
 			$this->db->where(['work.UserID'=>$employee_id]);
+			$this->db->order_by('DateWork');
 			$query = $this->db->get();
+		
 			return $query->result();
 
 		}
+
+
+		public function getChartData2($employee_id){
+						$this->db->select(['work.UserID', 'work.Project', 'work.DateWork', 'SUM(work.Hours) as Hours']);
+			$this->db->from('work');
+			$this->db->join('users', 'work.UserID = users.UserID');
+			$this->db->where(['work.UserID'=>$employee_id]);
+			$this->db->group_by('DateWork');
+			$this->db->order_by('DateWork');
+			$query = $this->db->get();
+		
+			return $query->result();
+
+		}
+
+	
+
+	
 	}
 ?>
